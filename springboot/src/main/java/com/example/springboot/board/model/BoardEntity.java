@@ -1,17 +1,17 @@
-package com.example.springboot.product.model;
+package com.example.springboot.board.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class ProductEntity {
+public class BoardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idx;
-    private String name;
-
+    private String title;
     private String contents;
-
-    private Integer price;
 
     public Integer getIdx() {
         return idx;
@@ -21,12 +21,12 @@ public class ProductEntity {
         this.idx = idx;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContents() {
@@ -35,13 +35,5 @@ public class ProductEntity {
 
     public void setContents(String contents) {
         this.contents = contents;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
     }
 }
