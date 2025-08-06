@@ -6,7 +6,7 @@ public class ProductDto {
         private String contents;
         private int price;
 
-        public static Product from(ProducrEntity entity) {
+        public static Product from(ProductEntity entity) {
             Product dto  = new Product();
             dto.setName(entity.getName());
             dto.setContents(entity.getContents());
@@ -45,8 +45,8 @@ public class ProductDto {
         private String contents;
         private int price;
 
-        public ProducrEntity toEntity() {
-            ProducrEntity entity = new ProducrEntity();
+        public ProductEntity toEntity() {
+            ProductEntity entity = new ProductEntity();
             entity.setName(name);
             entity.setContents(contents);
             entity.setPrice(price);

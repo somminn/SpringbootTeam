@@ -3,10 +3,7 @@ package com.example.springboot.product.controller;
 import com.example.springboot.product.model.ProductDto;
 import com.example.springboot.product.service.ProductService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
@@ -18,12 +15,12 @@ public class ProductController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity save(@RequestMapping ProductDto.Save dto) {
+    public ResponseEntity save(@RequestBody ProductDto.Save dto) {
         productService.save(dto);
         return ResponseEntity.status(200).body("완료");
     }
 
-    @GetMapping("/read")
+/*    @GetMapping("/read")
     public ResponseEntity read(Integer idx) {
         ProductDto.Read result = productService.read(idx);
         return ResponseEntity.status(200).body(result);
@@ -33,5 +30,5 @@ public class ProductController {
     public ResponseEntity list() {
         List<ProductDto.Read> result = productService.list();
         return  ResponseEntity.status(200).body(result);
-    }
+    }*/
 }
