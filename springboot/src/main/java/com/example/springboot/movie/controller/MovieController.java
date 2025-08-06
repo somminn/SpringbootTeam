@@ -3,6 +3,7 @@ package com.example.springboot.movie.controller;
 
 
 import com.example.springboot.movie.model.MovieDto;
+import com.example.springboot.movie.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

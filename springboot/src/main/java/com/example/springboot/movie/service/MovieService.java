@@ -38,15 +38,9 @@ public class MovieService {
         return null;
     }
 
-    public MovieDto.Movie search(String title) {
-        Optional<MovieEntity> result = movieRepository.findByTitle(title);
+    public List<MovieDto.Movie> search(String title) {
+        List<MovieEntity> result = movieRepository.findByTitle(title);
 
-        if(result.isPresent()) {
-            MovieEntity entity = result.get();
-
-            return MovieDto.Movie.from(entity);
-        }
-
-        return null;
+        return result.stream().map(MovieDto.Movie::from).toList();
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MovieRepository extends JpaRepository<MovieEntity, Integer> {
-    Optional<MovieEntity> findByTitle(String title);
+    List<MovieEntity> findByTitle(String title);
 }

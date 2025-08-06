@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
     List<BoardEntity> findByTitle(String name);
 
-    Optional<BoardDto.Board> findbyId(Integer idx);
+
 }
