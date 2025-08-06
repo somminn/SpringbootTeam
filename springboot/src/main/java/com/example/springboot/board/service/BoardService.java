@@ -1,5 +1,8 @@
 package com.example.springboot.board.service;
 
+import com.example.springboot.board.model.BoardDto;
+import com.example.springboot.board.model.BoardEntity;
+import com.example.springboot.board.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,21 +16,21 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
-    public void save(ServiceDto.Save dto) {
-        boardRepository.save(dto);
+    public void save(BoardDto.Save dto) {
+        boardRepository.save(dto.toEntity());
     }
 
     public List<BoardDto.Board> list() {
         List<BoardEntity> result = boardRepository.findAll();
 
-        return result.strean().map(BoardDto.Board::from).toList();
+        return result.stream().map(BoardDto.Board::from).toList();
     }
 
     public BoardDto.Board read(Integer idx) {
-        Optional<BoardDto.Board> result = boardRepository.findbyId(idx);
+        Optional<BoardEntity> result = boardRepository.findById(idx);
 
         if (result.isPresent()) {
-            BoardDto.Board entity = result.get();
+            BoardEntity entity = result.get();
 
             return BoardDto.Board.from(entity);
         }
@@ -35,7 +38,7 @@ public class BoardService {
     }
 
     public List<BoardDto.Board> search(String name) {
-        List<BoardEntity> result = boardRepository.findByName(name);
+        List<BoardEntity> result = boardRepository.findByTitle(name);
 
         return result.stream().map(BoardDto.Board::from).toList();
 

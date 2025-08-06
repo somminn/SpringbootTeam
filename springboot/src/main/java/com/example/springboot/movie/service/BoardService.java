@@ -1,5 +1,6 @@
 package com.example.springboot.movie.service;
 
+import com.example.springboot.movie.model.MovieDto;
 import com.example.springboot.movie.model.MovieEntity;
 import com.example.springboot.movie.repository.MovieRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class BoardService {
     }
 
     public void save(MovieDto.Save dto) {
-        movieRepository.save(dto)
+        movieRepository.save(dto.toEntity());
     }
 
     public List<MovieDto.Movie> list() {

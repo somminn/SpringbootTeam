@@ -1,9 +1,12 @@
 package com.example.springboot.board.controller;
 
 import com.example.springboot.board.model.BoardDto;
+import com.example.springboot.board.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/board")
