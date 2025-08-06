@@ -5,6 +5,8 @@ import com.example.springboot.product.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -20,15 +22,22 @@ public class ProductController {
         return ResponseEntity.status(200).body("완료");
     }
 
-/*    @GetMapping("/read")
+   @GetMapping("/read")
     public ResponseEntity read(Integer idx) {
-        ProductDto.Read result = productService.read(idx);
-        return ResponseEntity.status(200).body(result);
+        ProductDto.Product result = productService.read(idx);
+       return ResponseEntity.status(200).body(result);
     }
 
     @GetMapping("/list")
     public ResponseEntity list() {
-        List<ProductDto.Read> result = productService.list();
+        List<ProductDto.Product> result = productService.list();
         return  ResponseEntity.status(200).body(result);
-    }*/
+    }
+
+    @GetMapping("/productname")
+    public ResponseEntity productname(String productname) {
+        List<ProductDto.Product> result = productService.search(productname);
+
+        return  ResponseEntity.status(200).body(result);
+    }
 }

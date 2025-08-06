@@ -1,0 +1,51 @@
+package com.example.springboot.movie.service;
+
+import com.example.springboot.movie.model.MovieEntity;
+import com.example.springboot.movie.repository.MovieRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class BoardService {
+    private final MovieRepository movieRepository;
+
+    public BoardService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
+
+    public void save(MovieDto.Save dto) {
+        movieRepository.save(dto)
+    }
+
+    public List<MovieDto.Movie> list() {
+        List<MovieEntity> result = movieRepository.findAll();
+
+        return result.stream().map(MovieDto.Movie::from).toList();
+    }
+
+    public MovieDto.Movie read(Integer idx) {
+        Optional<MovieEntity> result = movieRepository.findById(idx);
+
+        if(result.isPresent()) {
+            MovieEntity entity = result.get();
+
+            return MovieDto.Movie.from(entity);
+        }
+
+        return null;
+    }
+
+    public MovieDto.Movie search(String title) {
+        Optional<MovieEntity> result = movieRepository.findByTitle(title);
+
+        if(result.isPresent()) {
+            MovieEntity entity = result.get();
+
+            return MovieDto.Movie.from(entity);
+        }
+
+        return null;
+    }
+}
