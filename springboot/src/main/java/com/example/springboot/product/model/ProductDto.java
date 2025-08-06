@@ -6,8 +6,8 @@ public class ProductDto {
         private String contents;
         private int price;
 
-        public static ProductDto.Product from(ProducrEntity entity) {
-            ProductDto.Product dto  = new ProductDto.Product();
+        public static Product from(ProductEntity entity) {
+            Product dto  = new Product();
             dto.setName(entity.getName());
             dto.setContents(entity.getContents());
             dto.setPrice(entity.getPrice());
@@ -40,13 +40,13 @@ public class ProductDto {
         }
     }
 
-    public static class Register{
+    public static class Save{
         private String name;
         private String contents;
         private int price;
 
-        public ProducrEntity toEntity() {
-            ProducrEntity entity = new ProducrEntity();
+        public ProductEntity toEntity() {
+            ProductEntity entity = new ProductEntity();
             entity.setName(name);
             entity.setContents(contents);
             entity.setPrice(price);

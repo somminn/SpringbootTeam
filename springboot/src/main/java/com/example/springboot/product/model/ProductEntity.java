@@ -1,4 +1,4 @@
-package com.example.springboot.Product.model;
+package com.example.springboot.product.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,38 +15,37 @@ public class ProductEntity {
 
     private Integer price;
 
-    private String description;
-
+    private String contents;
 
     public Integer getIdx() {
         return idx;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setIdx(Integer idx) {
         this.idx = idx;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getPrice() {
+        return price;
     }
 
     public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
     }
 }

@@ -1,6 +1,12 @@
 package com.example.springboot.product.service;
 
+import com.example.springboot.product.model.ProductDto;
+import com.example.springboot.product.model.ProductEntity;
+import com.example.springboot.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -10,14 +16,14 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public void register(ProductDto.Register dto) {
+    public void save(ProductDto.Save dto) {
         productRepository.save(dto.toEntity());
     }
 
     public List<ProductDto.Product> list() {
         List<ProductEntity> result = productRepository.findAll();
 
-        return result.stream().map(ProductDto.Student::from).toList();
+        return result.stream().map(ProductDto.Product::from).toList();
     }
 
     public ProductDto.Product read(Integer idx) {
