@@ -1,4 +1,4 @@
-package service;
+package com.example.springboot.product.service;
 
 import org.springframework.stereotype.Service;
 
@@ -14,28 +14,28 @@ public class ProductService {
         productRepository.save(dto.toEntity());
     }
 
-    public List<ProductDto.Student> list() {
+    public List<ProductDto.Product> list() {
         List<ProductEntity> result = productRepository.findAll();
 
         return result.stream().map(ProductDto.Student::from).toList();
     }
 
-    public ProductDto.Student read(Integer idx) {
+    public ProductDto.Product read(Integer idx) {
         Optional<ProductEntity> result = productRepository.findById(idx);
 
         if (result.isPresent()) {
             ProductEntity entity = result.get();
 
-            return ProductDto.Student.from(entity);
+            return ProductDto.Product.from(entity);
         }
 
         return null;
     }
 
-    public List<ProductDto.Student> search(String name) {
+    public List<ProductDto.Product> search(String name) {
         List<ProductEntity> result = productRepository.findByName(name);
 
-        return result.stream().map(ProductDto.Student::from).toList();
+        return result.stream().map(ProductDto.Product::from).toList();
     }
 
 }
