@@ -4,13 +4,13 @@ public class MovieDto {
     public static class Movie{
         private String title;
         private String contents;
-        private int runTime;
+        private Integer time;
 
         public static MovieDto.Movie from(MovieEntity entity) {
             MovieDto.Movie dto  = new MovieDto.Movie();
-            dto.setName(entity.getTitle());
+            dto.setTitle(entity.getTitle());
             dto.setContents(entity.getContents());
-            dto.setPrice(entity.getRuntime());
+            dto.setTime(entity.getTime());
 
             return dto;
         }
@@ -31,25 +31,25 @@ public class MovieDto {
             this.contents = contents;
         }
 
-        public int getRunTime() {
-            return runTime;
+        public int getTime() {
+            return time;
         }
 
-        public void setRunTime(int runTime) {
-            this.runTime = runTime;
+        public void setTime(int time) {
+            this.time = time;
         }
     }
 
     public static class Save{
         private String title;
         private String contents;
-        private int runTime;
+        private Integer time;
 
         public MovieEntity toEntity() {
             MovieEntity entity = new MovieEntity();
             entity.setTitle(title);
             entity.setContents(contents);
-            entity.setRuntime(runTime);
+            entity.setTime(time);
             return entity;
         }
 
@@ -69,12 +69,12 @@ public class MovieDto {
             this.contents = contents;
         }
 
-        public int getRunTime() {
-            return runTime;
+        public Integer getTime() {
+            return time;
         }
 
-        public void setRunTime(int runTime) {
-            this.runTime = runTime;
+        public void setTime(Integer time) {
+            this.time = time;
         }
     }
 }
