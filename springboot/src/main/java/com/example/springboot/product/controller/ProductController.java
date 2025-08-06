@@ -22,22 +22,22 @@ public class ProductController {
         return ResponseEntity.status(200).body("완료");
     }
 
-   @GetMapping("/read")
-    public ResponseEntity read(Integer idx) {
-        ProductDto.Product result = productService.read(idx);
-       return ResponseEntity.status(200).body(result);
-    }
-
-    @GetMapping("/list")
-    public ResponseEntity list() {
-        List<ProductDto.Product> result = productService.list();
-        return  ResponseEntity.status(200).body(result);
-    }
-
-    @GetMapping("/productname")
-    public ResponseEntity productname(String productname) {
-        List<ProductDto.Product> result = productService.search(productname);
-
-        return  ResponseEntity.status(200).body(result);
-    }
+//   @GetMapping("/read")
+//    public ResponseEntity read(Integer idx) {
+//        ProductDto.Product result = productService.read(idx);
+//       return ResponseEntity.status(200).body(result);
+//    }
+//
+//    @GetMapping("/list")
+//    public ResponseEntity list() {
+//        List<ProductDto.Product> result = productService.list();
+//        return  ResponseEntity.status(200).body(result);
+//    }
+//
+//    @GetMapping("/productname")
+//    public ResponseEntity productname(String productname) {
+//        List<ProductDto.Product> result = productService.search(productname);
+//
+//        return  ResponseEntity.status(200).body(result);
+//    }
 }
