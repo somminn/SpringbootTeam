@@ -17,6 +17,6 @@ public class ProductController {
     @PostMapping("/save")
     public ResponseEntity save(@RequestMapping BoardDto.Create dto) {
         boardService.save(dto);
-        return ResponseEntity.status(200).body("저장완료");
+        return ResponseEntity.status(200).body("완료");
     }
 }
