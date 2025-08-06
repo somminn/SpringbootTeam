@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springboot.iml" filepath="$PROJECT_DIR$/.idea/modules/springboot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springboot.main.iml" filepath="$PROJECT_DIR$/.idea/modules/springboot.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/springboot.test.iml" filepath="$PROJECT_DIR$/.idea/modules/springboot.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringbootTeam.iml" filepath="$PROJECT_DIR$/.idea/SpringbootTeam.iml" />
     </modules>
   </component>
 </project>
